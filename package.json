@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  },
+  "name": "basic-auth",
+  "description": "## Project: Basic-Authorization",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saynka/basic-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Saynka/basic-auth/issues"
+  },
+  "homepage": "https://github.com/Saynka/basic-auth#readme"
+}

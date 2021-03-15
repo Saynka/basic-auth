@@ -6,7 +6,7 @@
 
 ### Links and Resources
 
-- [ci/cd](http://xyz.com)
+- [ci/cd](https://password-practice.herokuapp.com/)
 - [back-end server url](http://xyz.com)
 - [front-end application](http://xyz.com)
 
@@ -46,7 +46,7 @@
 
 - `npm init -y`
 - `npm start`
-- `node app.js`
+- `node index.js`
 
 #### How to use your library
 
@@ -58,4 +58,4 @@
 
 #### UML
 
-![UML Example](./reference/uml-1.png)
+![UML Example](./assets/lab6.png)
