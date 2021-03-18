@@ -15,14 +15,38 @@
 .
 ├── LICENSE
 ├── README.md
-├── auth-server
-│   ├── app.js
-│   ├── package-lock.json
-│   └── package.json
-└── passwords
-├── app.js
+├── __tests__
+│   └── server.test.js
+├── assets
+│   └── lab6.png
+├── class\ refrences
+│   ├── lab\ 7
+│   └── lab6
+│       ├── auth-server
+│       │   ├── app.js
+│       │   ├── package-lock.json
+│       │   └── package.json
+│       └── passwords
+│           ├── app.js
+│           ├── package-lock.json
+│           └── package.json
+├── index.js
 ├── package-lock.json
-└── package.json
+├── package.json
+└── src
+    ├── middleware
+    │   ├── authentication
+    │   │   ├── authentication.js
+    │   │   └── passwords.js
+    │   └── error-handlers
+    │       ├── 404.js
+    │       └── 500.js
+    ├── models
+    │   └── users.js
+    ├── routes
+    │   └── authentication.js
+    └── server.js
+
 
 #### `.env` requirements
 

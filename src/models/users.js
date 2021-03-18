@@ -1,15 +1,34 @@
-'use strict'
+'use strict';
 
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken')
+const users = new mongoose.Schema({
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+});
 
-// mongoose schema (blueprint for our db data) -> normally, this would live in another file (models/resource/resource.js)
-const usersSchema = mongoose.Schema({ // note: mongoose.Schema is a constructor
-  username: { type: String, required: true },
-  password: { type: String, required: true }
-})
+// Adds a virtual field to the schema. We can see it, but it never persists
+// So, on every user object ... this.token is now readable!
+// users.virtual('token').get(function () {
+//   let tokenObject = {
+//     username: this.username,
+//   }
+//   return jwt.sign(tokenObject)
+// });
 
-// assigning the User model so that we can start adding users to the db
-// this also creates a "users" collection in the database (similar idea as a table)
-const Users = mongoose.model('users', usersSchema);
+users.pre('save', async function () {
+  this.password = bcrypt.hash(this.password, 10);
+});
 
-module.exports = Users;
+// BASIC AUTH
+users.statics.authenticateBasic = async function (username, password) {
+  const user = await this.findOne({ username })
+  console.log(user);
+  const valid = await bcrypt.compare(password, user.password)
+  console.log(valid)
+  if (valid) { return user; }
+  throw new Error('Invalid User');
+}
+
+module.exports = mongoose.model('users', users);
