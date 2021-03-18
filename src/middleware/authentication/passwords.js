@@ -1,7 +1,7 @@
 'use strict';
 
 const bcrypt = require('bcrypt');
-const Users = require('../../models/users.js');
+const Users = require('../src/models/users.js');
 
 module.exports = async function (req, res, next) {
   try {

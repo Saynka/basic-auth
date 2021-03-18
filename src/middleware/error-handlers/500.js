@@ -1,6 +1,6 @@
 'use strict';
 
-function errorHandler(err, req, res, next) {
+function errorHandler(req, res) {
   res.status(500).send({ status: 500, msg: 'broke for some reason' });
 }
 

@@ -1,21 +1,14 @@
 'use strict';
 
+// Start up DB Server
 require('dotenv').config();
-// Pull in 3rd party npm dependencies
-// new ones -> bcrypt (crypto for pw management) / base64 (encoding/decoding of username:pw)
-const express = require('express');
 const mongoose = require('mongoose');
+const options = {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+};
+mongoose.connect(process.env.MONGODB_URI, options);
 
-const PORT = process.env.PORT || 3333;
-
-const app = express();
-
-
-
-mongoose.connect('mongodb://localhost:27017/basic-auth', { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log('server up:', PORT);
-    });
-  })
-  .catch(e => console.error('db error', e.message));
+// Start the web server
+require('./src/server.js').start(process.env.PORT);
