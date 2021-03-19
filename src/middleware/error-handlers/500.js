@@ -1,7 +1,6 @@
 'use strict';
 
-function errorHandler(req, res) {
+module.exports = (req, res) => {
   res.status(500).send({ status: 500, msg: 'broke for some reason' });
+  next();
 }
-
-module.exports = errorHandler;
